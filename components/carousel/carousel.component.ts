@@ -30,7 +30,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, timestamp } from 'rxjs/operators';
 
 import { NzConfigKey, NzConfigService, WithConfig } from 'ng-zorro-antd/core/config';
 import { NzDragService, NzResizeService } from 'ng-zorro-antd/core/services';
@@ -356,11 +356,11 @@ export class NzCarouselComponent implements AfterContentInit, AfterViewInit, OnD
    * Drag carousel.
    */
   pointerDown = (event: TouchEvent | MouseEvent) => {
-    if (!this.isDragging && !this.isTransiting && this.nzEnableSwipe) {
-      if (this.platform.IOS && event instanceof TouchEvent) {
+    if (this.nzEnableSwipe && this.platform.IOS && event instanceof TouchEvent) {
         this.preventIOSSafariNavigation(event);
-      }
+    }
 
+    if (!this.isDragging && !this.isTransiting && this.nzEnableSwipe) {
       this.clearScheduledTransition();
       this.gestureRect = this.slickListEl.getBoundingClientRect();
 
