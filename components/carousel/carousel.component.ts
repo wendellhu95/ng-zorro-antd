@@ -30,7 +30,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { takeUntil, timestamp } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 import { NzConfigKey, NzConfigService, WithConfig } from 'ng-zorro-antd/core/config';
 import { NzDragService, NzResizeService } from 'ng-zorro-antd/core/services';
