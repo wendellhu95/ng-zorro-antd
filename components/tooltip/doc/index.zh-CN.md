@@ -25,6 +25,7 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | `[nzTooltipTitle]` | 提示文字 | `string \| TemplateRef<void>` | - |
+| `[nzTooltipTitleContext]` | 提示文字模板上下文 | `object` | - |
 | `[nzTooltipTrigger]` | 触发行为，可选 `hover/focus/click`，为 `null` 时不响应光标事件 | `'click' \| 'focus' \| 'hover' \| null` | `'hover'` |
 | `[nzTooltipPlacement]` | 气泡框位置 | `'top' \| 'left' \| 'right' \| 'bottom' \| 'topLeft' \| 'topRight' \| 'bottomLeft' \| 'bottomRight' \| 'leftTop' \| 'leftBottom' \| 'rightTop' \| 'rightBottom' \| Array<string>` | `'top'` |
 | `[nzTooltipColor]` | 背景颜色	| `string` | - |

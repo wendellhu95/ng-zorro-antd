@@ -44,7 +44,7 @@ import {
 })
 export class NzTooltipDirective extends NzTooltipBaseDirective {
   @Input('nzTooltipTitle') title?: NzTSType | null;
-  @Input('nzTooltipTitleContext') titleContext?: Object;
+  @Input('nzTooltipTitleContext') titleContext?: Object | null = null;
   @Input('nz-tooltip') directiveTitle?: NzTSType | null;
   @Input('nzTooltipTrigger') trigger?: NzTooltipTrigger = 'hover';
   @Input('nzTooltipPlacement') placement?: string | string[] = 'top';
