@@ -44,6 +44,7 @@ import {
 })
 export class NzTooltipDirective extends NzTooltipBaseDirective {
   @Input('nzTooltipTitle') title?: NzTSType | null;
+  @Input('nzTooltipTitleContext') titleContext?: Object;
   @Input('nz-tooltip') directiveTitle?: NzTSType | null;
   @Input('nzTooltipTrigger') trigger?: NzTooltipTrigger = 'hover';
   @Input('nzTooltipPlacement') placement?: string | string[] = 'top';
@@ -72,7 +73,8 @@ export class NzTooltipDirective extends NzTooltipBaseDirective {
 
   protected getProxyPropertyMap(): PropertyMapping {
     return {
-      nzTooltipColor: ['nzColor', () => this.nzTooltipColor]
+      nzTooltipColor: ['nzColor', () => this.nzTooltipColor],
+      nzTooltipTitleContext: ['nzTitleContext', () => this.titleContext]
     };
   }
 }
@@ -110,7 +112,7 @@ export class NzTooltipDirective extends NzTooltipBaseDirective {
             <span class="ant-tooltip-arrow-content" [ngStyle]="_contentStyleMap"></span>
           </div>
           <div class="ant-tooltip-inner" [ngStyle]="_contentStyleMap">
-            <ng-container *nzStringTemplateOutlet="nzTitle">{{ nzTitle }}</ng-container>
+            <ng-container *nzStringTemplateOutlet="nzTitle; context: nzTitleContext">{{ nzTitle }}</ng-container>
           </div>
         </div>
       </div>
@@ -120,6 +122,7 @@ export class NzTooltipDirective extends NzTooltipBaseDirective {
 })
 export class NzToolTipComponent extends NzTooltipBaseComponent {
   nzTitle: NzTSType | null = null;
+  nzTitleContext: Object | null = null;
 
   nzColor?: string | NzPresetColor;
 

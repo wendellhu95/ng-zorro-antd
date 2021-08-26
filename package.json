@@ -12,7 +12,7 @@
     "test:watch": "gulp test:watch --tags",
     "test:schematics": "gulp build:schematics && gulp test:schematics",
     "build": "gulp build:release",
-    "build:lib": "gulp build:library",
+    "build:lib": "gulp build:library --debug-brk=5858",
     "doc": "gulp build:preview",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s --pkg components/package.json && node ./scripts/site/replace-scope-prefix.js",
     "format": "prettier --config .prettierrc.js --list-different \\\"component/**/*{.ts}\\\"",
